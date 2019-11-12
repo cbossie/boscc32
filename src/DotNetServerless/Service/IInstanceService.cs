@@ -9,5 +9,6 @@ namespace DotNetServerless.Service
     {
         Task<int> IncrementInstance(string instanceId);
         Task<string> GetInstanceId();
+        Task ResetInstanceKey();
     }
 }

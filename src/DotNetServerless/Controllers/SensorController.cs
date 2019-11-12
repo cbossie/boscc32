@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using DotNetServerless.Filters;
 using DotNetServerless.Models;
 using DotNetServerless.Service;
@@ -12,11 +13,13 @@ namespace DotNetServerless.Controllers
     public class SensorController : BaseController
     {
         private ISensorService Svc { get; }
+        private IInstanceService InstSvc {get;}
 
-        public SensorController(ISensorService svc, InstanceInformation info) :
+        public SensorController(ISensorService svc, InstanceInformation info, IInstanceService inst) :
             base(info)
         {
             Svc = svc;
+            InstSvc = inst;
         }
 
         [HttpGet("{sensorId}")]
@@ -27,6 +30,12 @@ namespace DotNetServerless.Controllers
             return data;
         }
 
+        [HttpGet("Reset")]
+        public async Task<ModelBase> ResetInstanceCount()
+        {
+            await InstSvc.ResetInstanceKey();
+            return new ModelBase();
+        }
 
     }
 }

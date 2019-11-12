@@ -44,5 +44,9 @@ namespace DotNetServerless.Service
             return (int)ct;
         }
 
+        public async Task ResetInstanceKey()
+        {
+            await DB.RemoveAsync(CounterKey);
+        }
     }
 }
