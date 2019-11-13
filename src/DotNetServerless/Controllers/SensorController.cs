@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DotNetServerless.Filters;
 using DotNetServerless.Models;
@@ -22,7 +23,7 @@ namespace DotNetServerless.Controllers
             InstSvc = inst;
         }
 
-        [HttpGet("{sensorId}")]
+        [HttpGet("data/{sensorId}")]
 
         public async Task<ActionResult<SensorData>> GetSensorData(string? sensorId)
         {
@@ -35,6 +36,13 @@ namespace DotNetServerless.Controllers
         {
             await InstSvc.ResetInstanceKey();
             return Ok(new ModelBase());
+        }
+
+        [HttpGet("stats")]
+        public async Task<ActionResult<IEnumerable<InstanceInformation>>> GetInstanceExecutionStats() 
+        {
+            var data = await InstSvc.GetInstanceStats();
+            return Ok(data);
         }
 
 
