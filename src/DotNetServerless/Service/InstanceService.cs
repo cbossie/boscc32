@@ -12,8 +12,7 @@ namespace DotNetServerless.Service
 {
     public class InstanceService : IInstanceService
     {
-        private static string CounterKey = "LambdaInstanceCounter";
-        private static int DefaultDatabase = 0;
+        private const string CounterKey = "LambdaInstanceCounter";
 
         protected IRedisCacheClient Cli { get; }
         public InstanceService([NotNull]IRedisCacheClient cli)

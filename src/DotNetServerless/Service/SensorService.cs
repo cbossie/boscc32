@@ -8,9 +8,8 @@ namespace DotNetServerless.Service
 {
     public class SensorService : ISensorService
     {
-        Random Rng = new Random(DateTime.Now.Millisecond);
-
-        int MaxPauseMilliseconds = 5000;
+        readonly Random Rng = new Random(DateTime.Now.Millisecond);
+        const int MaxPauseMilliseconds = 5000;
 
         public SensorService()
         {
