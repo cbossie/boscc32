@@ -24,18 +24,20 @@ namespace DotNetServerless.Controllers
 
         [HttpGet("{sensorId}")]
 
-        public SensorData GetSensorData(string? sensorId)
+        public async Task<ActionResult<SensorData>> GetSensorData(string? sensorId)
         {
-            var data = Svc.GetData(sensorId?? throw new ArgumentNullException(nameof(sensorId)));
-            return data;
+            var data = await Svc.GetData(sensorId?? throw new ArgumentNullException(nameof(sensorId)));
+            return this.Ok(data);
         }
 
         [HttpGet("Reset")]
-        public async Task<ModelBase> ResetInstanceCount()
+        public async Task<ActionResult<ModelBase>> ResetInstanceCount()
         {
             await InstSvc.ResetInstanceKey();
-            return new ModelBase();
+            return Ok(new ModelBase());
         }
+
+
 
     }
 }

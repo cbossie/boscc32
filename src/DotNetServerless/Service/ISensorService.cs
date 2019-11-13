@@ -8,6 +8,6 @@ namespace DotNetServerless.Service
 {
     public interface ISensorService
     {
-        SensorData GetData(string sensorId);
+        Task<SensorData> GetData(string sensorId);
     }
 }
