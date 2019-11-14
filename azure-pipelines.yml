@@ -1,0 +1,31 @@
+# Starter pipeline
+- task: LambdaNETCoreDeploy@1
+  inputs:
+    awsCredentials: 'default'
+    regionName: 'us-east-1'
+    command: 'deployServerless'
+    packageOnly: false
+    lambdaProjectPath: 'src/DotNetServerless'
+    functionName: 
+    stackName: 'DotNetServerless-CodeCamp'
+    s3Bucket: 'cbtest-dotnet-serverless-deploy'
+    s3Prefix: 'DotNetServerless-CodeCamp/'
+    additionalArgs: '--config-file aws-lambda-tools-defaults.json'
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
