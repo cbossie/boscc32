@@ -7,7 +7,7 @@ This repository contains the companion code for the presentation contained in th
 
 https://github.com/cbossie/boscc32/blob/master/Boscc32%20-%20Serverless%20DotNetCore.pptx
 
-# The 5 steps required to update your API:
+## The 5 steps required to update your API:
 
 1) Create serverless.template
 
