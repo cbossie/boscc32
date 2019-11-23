@@ -1,4 +1,4 @@
-# boscc32
+# Boston code Camp 32 - Deploying your ASP.NET Core Web API as a Serverless Application
 Boston Code Camp 32 Materials
 
 #Thank you for attending my session at Boston Code Camp 32!
@@ -10,8 +10,6 @@ https://github.com/cbossie/boscc32/blob/master/Boscc32%20-%20Serverless%20DotNet
 # The 5 steps required to update your API:
 
 1) Create serverless.template
-- See Attached
-
 
 2) Add Nuget Packages:
 Amazon.Lambda.AspNetCoreServer
@@ -44,9 +42,7 @@ else
 5) Install AWS lambda tools
 dotnet tool install -g Amazon.Lambda.Tools
 
-5a) Create aws-lambda-tools-defaults.json
-Important things to note:
--profile
+Create aws-lambda-tools-defaults.json
 
 ```json
 {
@@ -77,3 +73,19 @@ Important things to note:
 
 /var/task/DotNetServerless
 ```
+
+## Resources
+- AWS Toolkit for Visual Studio
+
+https://aws.amazon.com/visualstudio/
+- .NET Core 3.0 on Lambda
+
+https://aws.amazon.com/blogs/developer/net-core-3-0-on-lambda-with-aws-lambdas-custom-runtime/
+- AWS SDK for .NET Twitter Account
+
+@awsfornet
+- AWS .NET Developer Blog
+
+https://aws.amazon.com/blogs/developer/category/programing-language/dot-net/
+
+
